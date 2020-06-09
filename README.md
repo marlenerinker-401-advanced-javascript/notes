@@ -1,5 +1,7 @@
 # Notesy
 
+This project contains a simple Node Module meant to run in the terminal.
+
 
 ### Author: Marlene Rinker
 
@@ -16,7 +18,11 @@
 #### Running the app
 
 options are: --add or -a
+
+```
 node index.js --add 'this is my note'
+```
+It returns a message in the terminal that it added your note.
 
 
 #### Tests
