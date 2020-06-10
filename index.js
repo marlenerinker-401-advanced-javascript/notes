@@ -6,5 +6,5 @@ const Input = require('./lib/input');
 
 const options = new Input();
 const note = new Note();
-console.log(note.execute(options));
+note.execute(options);
 
