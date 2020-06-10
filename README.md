@@ -1,6 +1,6 @@
 # Notesy
 
-This project contains a simple Node Module meant to run in the terminal.
+This project contains simple Node Modules meant to run in the terminal.
 
 
 ### Author: Marlene Rinker
@@ -11,7 +11,7 @@ This project contains a simple Node Module meant to run in the terminal.
 
 ### Setup
 
-#### `.env` requirements
+<!-- #### `.env` requirements -->
 
 <!-- - `PORT` - Port Number -->
 
@@ -27,12 +27,11 @@ It returns a message in the terminal that it added your note.
 
 #### Tests
 
-<!-- - Unit Tests: `npm run test`
-- Lint Tests: `npm run lint`
+- Unit Tests: `npm test input.test.js`, `npm test notes.test.js`
 - Assertions Made
-  - Things I want to test
-- Assertions Remaining
-  - ... Things I want to tests, but didn't yet. -->
+  - Testing if user input is valid or invalid
+  - Testing if Input object is created with valid action and payload
+  - Testing if get correct log message when add a note, use an invalid command, or don't enter a payload (note content)
 
 #### UML
 
