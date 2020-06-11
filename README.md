@@ -13,7 +13,7 @@ This project contains simple Node Modules meant to run in the terminal.
 
 #### `.env` requirements
 
-MONGODB_URI=mongodb://localhost:27017/db
+MONGODB_ATLAS_URI=mongodb+srv://dbAdmin:<password>@cluster0-2u75g.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 #### Packages to Install
 (see package.json)
