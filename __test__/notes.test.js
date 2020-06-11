@@ -4,31 +4,25 @@ const Note = require('../lib/notes.js');
 
 jest.spyOn(global.console, 'log');
 
-// these tests fail now that we're using mongoose. when i add the config that mongoose says is needed (I get a warning from mongoose when I run the tests that it won't work with jest), then I get a message that tests can't be run after the jest environment is torn down. Not sure how I'm suppose to test this.
+// These tests fail now that we're using mongoose. When I add the config that mongoose says is needed (I got a warning from mongoose when I run the tests that it won't work with jest and the way to fix it was to add the config file), then I get a message that tests can't be run after the jest environment is torn down. 
 describe('testing note modules', () => {
 
   it('should log when no action', () => {
     let note = new Note({ action: null, payload: 'my note', category: 'school' });
-    note.execute()
-    .then (expect(console.log).toHaveBeenCalledWith('That action is invalid. Try again.'))
-    .catch(err => console.log(err));
-    // expect(console.log).toHaveBeenCalledWith('That action is invalid. Try again.');
+    note.execute();
+    expect(console.log).toHaveBeenCalledWith('That action is invalid. Try again.');
   });
 
   it('should log when no payload', () => {
     let note = new Note({ action: 'add', payload: null, category: 'groceries'});
-    note.execute()
-    .then(expect(console.log).toHaveBeenCalledWith('Invalid input. Try again.'))
-    .catch(err => console.log(err));
-    // expect(console.log).toHaveBeenCalledWith('Invalid input. Try again.');
+    note.execute();
+    expect(console.log).toHaveBeenCalledWith('You must add the note text and a category.');
   })
 
   it('should log when added note', () => {
     let note = new Note( { action: 'add', payload: 'my note'});
-    note.execute()
-    .then(expect(console.log).toHaveBeenCalledWith('Adding note: my note'))
-    .catch(err => console.log(err));
-    // expect(console.log).toHaveBeenCalledWith('Adding note: my note');
+    note.execute();
+    expect(console.log).toHaveBeenCalledWith('Adding note: my note');
 
   })
 });
