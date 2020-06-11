@@ -5,7 +5,7 @@ This project contains simple Node Modules meant to run in the terminal.
 
 ### Author: Marlene Rinker
 
-- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/notes/pull/3)
+- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/notes/pull/5)
 <!-- - [tests report](https://github.com/tutuorial-401js/class-00/actions) -->
 <!-- - [front-end](https://tutorial-401js.herokuapp.com/) -->
 
