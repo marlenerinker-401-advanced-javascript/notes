@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/marlenerinker-401-advanced-javascript/notes#readme",
   "dependencies": {
-    "minimist": "^1.2.5"
+    "dotenv": "^8.2.0",
+    "minimist": "^1.2.5",
+    "mongoose": "^5.9.18"
   },
   "devDependencies": {
     "jest": "^26.0.1"
