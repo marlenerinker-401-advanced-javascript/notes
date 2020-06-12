@@ -66,6 +66,8 @@ This deletes the note from the database and returns a message that it was delete
   - Testing if user input is valid or invalid
   - Testing if Input object is created with valid action and payload
   - Testing if get correct log message when add a note, use an invalid command, or don't enter a payload (note content)
+  - Testing if get a list of notes with a certain category
+  - Testing if you can delete a note
 
 #### UML
 
