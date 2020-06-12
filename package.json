@@ -1,7 +1,7 @@
 {
   "name": "notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project contains simple Node Modules meant to run in the terminal.",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --coverage"
@@ -18,11 +18,15 @@
   },
   "homepage": "https://github.com/marlenerinker-401-advanced-javascript/notes#readme",
   "dependencies": {
+    "cf-supergoose": "^1.0.2",
     "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
     "mongoose": "^5.9.18"
   },
   "devDependencies": {
     "jest": "^26.0.1"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

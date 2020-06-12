@@ -1,11 +1,19 @@
 'use strict';
 
 const Note = require('../lib/notes.js');
+const supergoose = require('cf-supergoose');
+
+beforeAll(() => {
+  supergoose.startDB();
+})
+
+afterAll(() => {
+  supergoose.stopDB();
+})
 
 jest.spyOn(global.console, 'log');
 
-// These tests fail now that we're using mongoose. When I add the config that mongoose says is needed (I got a warning from mongoose when I run the tests that it won't work with jest and the way to fix it was to add the config file), then I get a message that tests can't be run after the jest environment is torn down. 
-describe('testing note modules', () => {
+describe('testing adding to database', () => {
 
   it('should log when no action', () => {
     let note = new Note({ action: null, payload: 'my note', category: 'school' });
@@ -17,12 +25,49 @@ describe('testing note modules', () => {
     let note = new Note({ action: 'add', payload: null, category: 'groceries'});
     note.execute();
     expect(console.log).toHaveBeenCalledWith('You must add the note text and a category.');
-  })
+  });
 
-  it('should log when added note', () => {
-    let note = new Note( { action: 'add', payload: 'my note'});
-    note.execute();
-    expect(console.log).toHaveBeenCalledWith('Adding note: my note');
+  it('should log when added note', (done) => {
+    let note = new Note( { action: 'add', payload: 'my note', category: 'groceries'});
+    note.execute()
+    .then(() => {
+      expect(console.log).toHaveBeenCalledWith('Adding note: my note')
+      done();
+    })
 
-  })
+
+  });
 });
+
+describe('testing getting a list from the database', () => {
+
+  it('should get a list', () => {
+    let note = new Note( { action: 'add', payload: 'my note', category: 'groceries'});
+    note.execute()
+    .then(() => {
+      let list = new Note( { action: 'list', category: 'groceries'} )
+      list.execute()
+    })
+    .then(() => {
+      expect(console.log).toContain('groceries')
+      done();
+    })
+});
+});
+
+// describe('testing deleting a note from the database', () => {
+
+//   it('should delete a note', (done) => {
+//     let note = new Note( { action: 'add', payload: 'my note', category: 'groceries'});
+//     note.execute()
+//     .then(() =>{
+//       console.log();
+//       // let noteID = note._id;
+//       let note = new Note ({ action: 'delete', payload: noteID})
+//       note.execute()
+//     })
+//     .then(() => {
+//       expect(console.log).toHaveBeenCalledWith(`Deleted: ${note._id}`)
+//       done();
+//     })
+//   });
