@@ -5,7 +5,7 @@ This project contains simple Node Modules meant to run in the terminal.
 
 ### Author: Marlene Rinker
 
-- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/notes/pull/5)
+- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/notes/pull/6)
 <!-- - [tests report](https://github.com/tutuorial-401js/class-00/actions) -->
 <!-- - [front-end](https://tutorial-401js.herokuapp.com/) -->
 
@@ -13,7 +13,7 @@ This project contains simple Node Modules meant to run in the terminal.
 
 #### `.env` requirements
 
-MONGODB_URI=mongodb://localhost:27017/db
+MONGODB_ATLAS_URI=mongodb+srv://dbAdmin:<password>@cluster0-2u75g.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 #### Packages to Install
 (see package.json)
@@ -66,6 +66,8 @@ This deletes the note from the database and returns a message that it was delete
   - Testing if user input is valid or invalid
   - Testing if Input object is created with valid action and payload
   - Testing if get correct log message when add a note, use an invalid command, or don't enter a payload (note content)
+  - Testing if get a list of notes with a certain category
+  - Testing if you can delete a note
 
 #### UML
 
