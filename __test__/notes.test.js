@@ -41,30 +41,37 @@ describe('testing adding to database', () => {
 
 describe('testing getting a list from the database', () => {
 
-  it('should get a list', () => {
+  it('should get a list of notes with specific category', () => {
     let note = new Note( { action: 'add', payload: 'my note', category: 'groceries'});
     note.execute()
     .then(() => {
-      let list = new Note( { action: 'list', category: 'groceries'} )
-      list.execute()
+      let note = new Note( { action: 'list', category: 'book'} );
+      list.execute();
     })
     .then(() => {
-      expect(console.log).toContain('groceries')
+      let list = new Note( { action: 'list', category: 'groceries'} );
+      list.execute();
+    })
+    .then(() => {
+      expect(console.log).toContain('groceries');
+      expect(console.log).not.toContain('book');
     })
 });
 });
 
 describe('testing deleting a note from the database', () => {
 
-  it('should delete a note', (done) => {
+  it('should log note was deleted along with the id', () => {
     let note = new Note( { action: 'add', payload: 'my note', category: 'groceries'});
-    note.execute();
-    let id = note._id;
-    let deleteAction = new Note ( {action: 'delete', payload: note._id});
-    deleteAction.execute()   
-    .then(() => {
-      expect(console.log).toHaveBeenCalledWith(`Deleted: ${id}`);
-      done();
+    note.execute()
+    .then (result => {
+    let deleteAction = new Note ( {action: 'delete', payload: result._id});
+    deleteAction.execute();
+    return result._id;   
     })
-  })
-});
+    .then(result => {
+      expect(console.log).toHaveBeenCalledWith(`Deleted: ${result._id}`);
+      
+    })
+   });
+  });
